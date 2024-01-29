@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    /* Style the body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    /* Style the top bar */
+    .top-bar {
+      height: 60px;
+      background: linear-gradient(to right, #009688, #4db6ac);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      padding: 0 20px;
+    }
+
+    /* Style the icon */
+    .icon {
+      width: 40px;
+      height: 40px;
+      background: url("icon.png") no-repeat center;
+      background-size: contain;
+      margin-right: 10px;
+    }
+
+    /* Style the title */
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Style the logout option */
+    .logout {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Style the welcome section */
+    .welcome {
+      height: 300px;
+      background: linear-gradient(to bottom, #4db6ac, #fff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    /* Style the welcome message */
+    .welcome-message {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Style the user name */
+    .user-name {
+      font-size: 36px;
+      font-weight: bold;
+      color: #2196f3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar">
+    <div class="icon"></div>
+    <div class="title">Employee Portal</div>
+    <div onclick="logout()" class="logout"><button>logout</button></div>
+  </div>
+  <div class="welcome">
+    <div class="welcome-message">Welcome</div>
+    <div id="display" class="user-name">User</div>
+  </div>
+</body>
+<script>
+  if(localStorage.getItem('user')){
+    display.innerHTML = localStorage.getItem('user')
+  }
+  else{
+    alert('please fill the form')
+    window.location='index.html'
+  }
+  
+  const logout=()=>{
+    localStorage.removeItem('user')
+    window.location='index.html'
+  }
+
+</script>
+
+</html>
